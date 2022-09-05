@@ -32,6 +32,12 @@ export default function LifeCycleFunction() {
     setCarts(keranjangSekarang);
   }
 
+  function hapusSemua(allProducts) {
+    const keranjangSekarang = [...carts];
+    keranjangSekarang.length = 0;
+    setCarts(keranjangSekarang);
+  }
+
   useEffect(() => {
     setProducts(ProductFromAPI);
   }, []);
@@ -71,6 +77,7 @@ export default function LifeCycleFunction() {
           </li>
         ))}
       </ul>
+      <button onClick={() => hapusSemua(carts)}> Hapus Semua </button>
 
       <h4> Total Harga : Rp. {totalPrice} </h4>
     </>
